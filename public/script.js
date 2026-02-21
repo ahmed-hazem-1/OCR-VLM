@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modelGroup = document.getElementById('model-group');
 
     let selectedFile = null;
+    const API_BASE_URL = window.location.origin;
 
     // Trigger file input on browse button click
     browseBtn.addEventListener('click', () => fileInput.click());
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('/api/medical-ocr', {
+            const response = await fetch(`${API_BASE_URL}/api/medical-ocr`, {
                 method: 'POST',
                 body: formData,
                 headers: headers

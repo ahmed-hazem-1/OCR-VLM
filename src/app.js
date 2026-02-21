@@ -6,8 +6,10 @@ const apiRoutes = require('./routes/api');
 dotenv.config();
 
 const app = express();
+const cors = require('cors');
 
 // Middlewares
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
