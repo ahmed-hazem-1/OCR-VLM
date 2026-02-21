@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical OCR AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🩺 Medical OCR AI</h1>
+            <p>Extract structured medical data using Gemini 2.0 Flash</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="config-section">
+            <div class="config-grid">
+                <div class="input-group">
+                    <label for="api-key-input">Gemini API Key</label>
+                    <div class="api-input-wrapper">
+                        <input type="password" id="api-key-input" placeholder="Enter your Gemini API Key">
+                        <button id="check-models-btn" class="btn-secondary">Check Models</button>
+                    </div>
+                    <small>Enter API key to see available models (or leave blank for default)</small>
+                </div>
+                <div id="model-group" class="input-group hidden">
+                    <label for="model-select">Model Version</label>
+                    <select id="model-select">
+                        <!-- Models populated dynamically -->
+                        <option value="gemini-2.0-flash">Gemini 2.0 Flash (Default)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="upload-section">
+            <div id="dropzone" class="dropzone">
+                <div class="dropzone-content">
+                    <span class="icon">📄</span>
+                    <p>Drag and drop your medical document here</p>
+                    <p class="small">(Image, PDF, DOCX, or Text)</p>
+                    <button id="browse-btn" class="btn-accent">Browse File</button>
+                    <input type="file" id="file-input" hidden accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,.docx,.txt">
+                </div>
+            </div>
+            <div id="file-info" class="file-info hidden">
+                <span id="filename"></span>
+                <button id="clear-btn" class="btn-text">Remove</button>
+            </div>
+            <button id="process-btn" class="btn-primary" disabled>Extract Data</button>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <div class="results-header">
+                <h2>Extraction Results</h2>
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <span>Processing with AI...</span>
+                </div>
+            </div>
+            <div class="results-container">
+                <div id="human-preview" class="human-preview hidden">
+                    <!-- Dynamic Preview Content -->
+                </div>
+                <div class="json-viewer">
+                    <h3>Raw JSON Output</h3>
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </section>
+
+        <div id="error-box" class="error-box hidden"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Powered by Google Gemini 2.0 Flash</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
