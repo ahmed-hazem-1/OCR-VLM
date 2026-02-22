@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modelGroup = document.getElementById('model-group');
 
     let selectedFile = null;
-    // Use relative paths for same-origin requests (e.g. on Render)
+    // Use relative paths for Render (monolithic deployment)
     const API_BASE_URL = '';
 
     // Trigger file input on browse button click
