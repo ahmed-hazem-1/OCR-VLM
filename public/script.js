@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modelGroup = document.getElementById('model-group');
 
     let selectedFile = null;
-    const API_BASE_URL = window.location.origin;
+    // On Netlify, we use relative paths thanks to redirects
+    const API_BASE_URL = '';
 
     // Trigger file input on browse button click
     browseBtn.addEventListener('click', () => fileInput.click());
