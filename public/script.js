@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modelGroup = document.getElementById('model-group');
 
     let selectedFile = null;
-    // On Netlify, we use relative paths thanks to redirects
+    // Use relative paths for same-origin requests (e.g. on Render)
     const API_BASE_URL = '';
 
     // Trigger file input on browse button click
